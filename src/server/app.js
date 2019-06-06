@@ -129,6 +129,34 @@ function get_app(config){
         );
 
     });
+    
+    app.get('/api/queue/add/:name', async (req, res, next) => {
+
+        let filePath = path.join(config.destination, '../../files');
+        let name = req.params.name;
+        let folderName = req.query.folderName;
+        process_manager.reserve_name(config.def_owner, name).then(id =>{
+            if(null != id)
+            {
+                process_manager.queue_job(config.def_owner
+                    , id 
+                    , filePath + '\\' + folderName + '\\'+ name
+                ).then(()=>{
+
+                    res.send(id);
+
+                }, err => 
+                {
+                    console.error('QYE', err.message, err.stack); 
+                    process_manager.record_error(config.def_owner, id, err, 'QUEUE JOB ERROR');
+                    
+                    next(err);
+                });
+            }
+        });
+        
+
+    });
 
     
     app.put('/upload/:id?', (req, res, next) => {

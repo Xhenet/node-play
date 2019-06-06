@@ -437,7 +437,7 @@ module.exports = {
                                                     }
                                                 ] 
                                             }]}
-                                        , generate_config_encode('1', 144, 120,  [
+                                        , generate_config_encode('1', 1980, 3500,  [
                                             { type : 'code', name : 'CONFIGURE PACKAGE', config : { code : package_config_code}, target_type : 'code'
                                                 , children : [
                                                     {type: 'code', name : 'MG PACKAGE', config: {cmd : 'mg', args : [], code : '"MG"'}, target_type : 'execute'
@@ -447,12 +447,8 @@ module.exports = {
                                                 
                                                         ]}
                                                 ]}
-                                        ])        
-                                        , generate_config_encode('2', 288, 320) 
-                                        , generate_config_encode('3', 576, 750) 
-                                        , generate_config_encode('4', 720, 1200)
-                                        , generate_config_encode('5', 720, 2000) 
-                                        , generate_config_encode('6', 720, 3500)
+                                        ])
+                                        , generate_config_encode('2', 1980, 3500)
                                     ]
                                 }
                                 

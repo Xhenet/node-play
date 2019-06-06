@@ -33,8 +33,11 @@ function dir(d)
         dbg('mkdir error %O', err);
     }
 }
+const root_dir = modpath.normalize(modpath.join(__dirname, '../..'));
+const dirname  = modpath.normalize(modpath.join(root_dir, './bin'));
+const dist_dir = modpath.normalize(modpath.join(root_dir, './dist'));
 
-const home_destination = optval('NODEPLAYDESTINATION', process.env.HOME, process.env.APPDATA);
+const home_destination = optval('NODEPLAYDESTINATION', modpath.normalize(modpath.join(root_dir, '../../../localStorage/working')) ,process.env.HOME, process.env.APPDATA);
 const status_man_use   = optval('NODEPLAYSTATUSMAN', '../processor/statmanfs.js');
 const processor_use    = optval('NODEPLAYPROCESSOR', '../flows/processor.js');
 const def_owner        = optval('NODEPLAYDEFOWNER', 'uploader');
@@ -43,10 +46,6 @@ const destination      = modpath.join(home_destination, '.node_play');
 const port             = optval('NODEPLAYPORT', 3000);
 
 let env_path = process.env.PATH;
-
-const root_dir = modpath.normalize(modpath.join(__dirname, '../..'));
-const dirname  = modpath.normalize(modpath.join(root_dir, './bin'));
-const dist_dir = modpath.normalize(modpath.join(root_dir, './dist'));
 
 process.env.PATH = dirname + modpath.delimiter + env_path;
 process.env.OPFLOWDISKPATH = modpath.join(destination, 'storage');

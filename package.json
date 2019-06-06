@@ -1,49 +1,49 @@
 {
-  "name": "@mediagoom/node-play",
-  "publishConfig": {
-    "access": "public"
+  "_args": [
+    [
+      "git+https://github.com/Xhenet/node-play.git",
+      "C:\\Users\\admin\\MyStuff\\UNI\\BP\\schulcloud-content"
+    ]
+  ],
+  "_from": "git+https://github.com/Xhenet/node-play.git",
+  "_id": "@mediagoom/node-play@git+https://github.com/Xhenet/node-play.git#13e2a066a8f4ce6cae8a313d05e50da0a9d3efea",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/@mediagoom/node-play",
+  "_phantomChildren": {
+    "ms": "2.1.1"
   },
-  "version": "0.0.13",
-  "description": "A nodejs streaming server implementation",
-  "main": "src/server/index.js",
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/Xhenet/node-play.git",
+    "rawSpec": "git+https://github.com/Xhenet/node-play.git",
+    "saveSpec": "git+https://github.com/Xhenet/node-play.git",
+    "fetchSpec": "https://github.com/Xhenet/node-play.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/Xhenet/node-play.git#13e2a066a8f4ce6cae8a313d05e50da0a9d3efea",
+  "_spec": "git+https://github.com/Xhenet/node-play.git",
+  "_where": "C:\\Users\\admin\\MyStuff\\UNI\\BP\\schulcloud-content",
+  "author": {
+    "name": "MediaGoom"
+  },
   "bin": {
     "nodeplay": "src/server/index.js"
   },
-  "scripts": {
-    "integration-clean": "shx --silent rm -rf opflow-dir",
-    "integration": "mocha --reporter spec --timeout 1200000 ./test/integration//**/*.spec.js",
-    "test": "node ./node_modules/mocha/bin/_mocha ./test/unit//**/*.js",
-    "start": "node ./node_modules/@mediagoom/devman start server",
-    "server": "node ./src/server/index.js",
-    "stop": "node ./node_modules/@mediagoom/devman stop",
-    "install": "node ./downloadtools.js",
-    "cov-test": "nyc npm test",
-    "cov-integration": "nyc --clean false npm run integration",
-    "cov-all": "run-s integration-clean cov-test cov-integration",
-    "cov-html": "nyc report --reporter=html",
-    "cov-lcov": "nyc report --reporter=text-lcov > coverage.lcov"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mediagoom/node-play.git"
-  },
-  "keywords": [
-    "mpeg-dash",
-    "hls",
-    "vod",
-    "streaming",
-    "webtv",
-    "play",
-    "video",
-    "onlinevideo",
-    "media"
-  ],
-  "author": "MediaGoom",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/mediagoom/node-play/issues"
   },
-  "homepage": "https://github.com/mediagoom/node-play#readme",
+  "dependencies": {
+    "@mediagoom/chunk-upload": "0.0.13",
+    "@mediagoom/opflow": "0.0.31",
+    "debug": "^4.1.0",
+    "express": "^4.16.4",
+    "parse-spawn-args": "^1.0.2"
+  },
+  "description": "A nodejs streaming server implementation",
   "devDependencies": {
     "@mediagoom/devman": "^0.0.6",
     "chai": "^4.2.0",
@@ -58,14 +58,44 @@
     "supertest": "^3.3.0",
     "url": "^0.11.0"
   },
-  "dependencies": {
-    "@mediagoom/opflow": "0.0.31",
-    "@mediagoom/chunk-upload": "0.0.13",
-    "debug": "^4.1.0",
-    "express": "^4.16.4",
-    "parse-spawn-args": "^1.0.2"
-  },
   "engines": {
     "node": ">8.0.0"
-  }
+  },
+  "homepage": "https://github.com/mediagoom/node-play#readme",
+  "keywords": [
+    "mpeg-dash",
+    "hls",
+    "vod",
+    "streaming",
+    "webtv",
+    "play",
+    "video",
+    "onlinevideo",
+    "media"
+  ],
+  "license": "ISC",
+  "main": "src/server/index.js",
+  "name": "@mediagoom/node-play",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mediagoom/node-play.git"
+  },
+  "scripts": {
+    "cov-all": "run-s integration-clean cov-test cov-integration",
+    "cov-html": "nyc report --reporter=html",
+    "cov-integration": "nyc --clean false npm run integration",
+    "cov-lcov": "nyc report --reporter=text-lcov > coverage.lcov",
+    "cov-test": "nyc npm test",
+    "install": "node ./downloadtools.js",
+    "integration": "mocha --reporter spec --timeout 1200000 ./test/integration//**/*.spec.js",
+    "integration-clean": "shx --silent rm -rf opflow-dir",
+    "server": "node ./src/server/index.js",
+    "start": "node ./node_modules/@mediagoom/devman start server",
+    "stop": "node ./node_modules/@mediagoom/devman stop",
+    "test": "node ./node_modules/mocha/bin/_mocha ./test/unit//**/*.js"
+  },
+  "version": "0.0.13"
 }

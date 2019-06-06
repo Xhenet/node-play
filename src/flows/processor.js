@@ -1,16 +1,18 @@
 const opflow = require('@mediagoom/opflow');
 const assert = require('assert');//.strict;
 const dbg = require('debug')('node-play:opflow-processor');
-//const path = require('path');
 const EventEmitter = require('events');
-//const path = require('path');
 const encode_flow = require('./encode').encode;
+const axios = require('axios');
 
 
 function flow_end(flow_id)
 {
     dbg('flow-end', flow_id);
-
+    axios.get('http://localhost:4040/drm/video/'+flow_id)
+        .catch(error => {
+            throw error;
+        });
     
 }
 
